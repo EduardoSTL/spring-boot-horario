@@ -2,23 +2,21 @@ package com.eduardo.springboothorario.interceptors;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Data;
-import lombok.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Calendar;
-import java.util.Objects;
 
 @Component("horario")
 public class HorarioInterceptor implements HandlerInterceptor {
 
-    @Value("${config.horario.apertura]")
+    @Value("${config.horario.apertura}")
     private Integer apertura;
 
-    @Value("${config.horario.cierre]")
+    @Value("${config.horario.cierre}")
     private Integer cierre;
 
     @Override
