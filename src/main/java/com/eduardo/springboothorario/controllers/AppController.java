@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-@Data
 public class AppController {
     @Value("${config.horario.apertura}")
     private Integer apertura;
@@ -19,5 +18,19 @@ public class AppController {
     public String index(Model model){
         model.addAttribute("titulo", "Bienvenido al horario de atencion al cliente");
         return "index";
+    }
+
+    @GetMapping("/cerrado")
+    public String cerrado(Model model){
+        StringBuilder mensaje = new StringBuilder("Cerrado, por favor visitanos desde las ");
+        mensaje.append(apertura);
+        mensaje.append(" y las ");
+        mensaje.append(cierre);
+        mensaje.append(" hrs. Gracias.");
+
+        model.addAttribute("titulo", "Fuera del horario de atencion");
+        model.addAttribute("mensaje", mensaje);
+
+        return "cerrado";
     }
 }
