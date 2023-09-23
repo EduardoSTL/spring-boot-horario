@@ -1,6 +1,5 @@
 package com.eduardo.springboothorario.controllers;
 
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +15,7 @@ public class AppController {
 
     @GetMapping({"/", "/index"})
     public String index(Model model){
-        model.addAttribute("titulo", "Bienvenido al horario de atencion al cliente");
+        model.addAttribute("titulo", "Bienvenido al horario de atencion al clientes");
         return "index";
     }
 

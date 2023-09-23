@@ -12,7 +12,6 @@ import java.util.Calendar;
 
 @Component("horario")
 public class HorarioInterceptor implements HandlerInterceptor {
-
     @Value("${config.horario.apertura}")
     private Integer apertura;
 
@@ -47,7 +46,7 @@ public class HorarioInterceptor implements HandlerInterceptor {
         String mensaje = (String) request.getAttribute("mensaje");
 
         if (modelAndView != null && handler instanceof HandlerMethod){
-            modelAndView.addObject("propietario", mensaje);
+            modelAndView.addObject("horario", mensaje);
         }
     }
 }
